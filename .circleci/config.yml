@@ -25,6 +25,11 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - restore_cache:
+          keys:
+            - simpleMesage
+      - run: echo "printing Text.txt:"
+      - run: cat test.txt
       - run: echo "my name is $TEST_NAME"
 
 
