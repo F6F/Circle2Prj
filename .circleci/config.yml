@@ -11,16 +11,20 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo "hello"
-  print_world:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo "world"
       - run: echo "hello World" > test.txt
       - save_cache:
           key: simpleMesage
           paths:
             - test.txt
+
+  print_world:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo "world"
+      - run: echo "printing Text.txt:"
+      - run: cat test.txt
+
   build:
     docker:
       - image: circleci/node:13.8.0
@@ -28,8 +32,6 @@ jobs:
       - restore_cache:
           keys:
             - simpleMesage
-      - run: echo "printing Text.txt:"
-      - run: cat test.txt
       - run: echo "my name is $TEST_NAME"
 
 
