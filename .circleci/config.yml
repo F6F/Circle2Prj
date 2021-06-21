@@ -42,7 +42,7 @@ jobs:
       - run: 
           name: error handler
           command: echo "error restoring cache"
-          when: on _fail
+          when: on_fail
 
   build:
     docker:
