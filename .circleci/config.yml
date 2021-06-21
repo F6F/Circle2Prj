@@ -19,7 +19,7 @@ jobs:
       - run: echo "hello World" > test.txt
       - save_cache:
           key: simpleMesage
-          path:
+          paths:
             - test.txt
   build:
     docker:
