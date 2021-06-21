@@ -17,15 +17,16 @@ jobs:
     steps:
       - run: echo "world"
       - run: echo "hello World" > test.txt
+      - save_cache:
+          key: simpleMesage
+          path:
+            - ~./test.txt
   build:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run: echo "my name is $TEST_NAME"
-  save_cache:
-    key: simpleMesage
-    path:
-      - ~./test.txt
+
 
 workflows:
   # Name the workflow "welcome"
