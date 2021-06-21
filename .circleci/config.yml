@@ -41,6 +41,7 @@ workflows:
       - welcome/run
       - print_hello
       - print_world
+      - build
 
   exampleContext:
     jobs:
