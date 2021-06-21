@@ -5,6 +5,16 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
+commands:
+  sayit:
+    description: "A very simple command for demonstration purposes"
+    parameters:
+      to:
+        type: string
+        default: "Blablabla"
+    steps:
+      - run: echo << parameters.to >>
+
 jobs:
   print_hello:
     docker:
@@ -16,6 +26,8 @@ jobs:
           key: simpleMesage
           paths:
             - test.txt
+      - sayit:
+          to: "tobi was here"
 
   print_world:
     docker:
