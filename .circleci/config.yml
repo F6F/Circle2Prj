@@ -36,8 +36,12 @@ jobs:
       - run: echo "world"
       - restore_cache:
           keys:
-            - simpleMesage
+            - simpleMesages
       - run: echo "printing Text.txt:"
+      - run: 
+          name: error handler
+          command: echo "error restoring cache"
+          when: on _fail
       - run: cat test.txt
 
   build:
