@@ -17,7 +17,10 @@ jobs:
     steps:
       - run: echo "world"
       - run: echo "hello World" > test.txt
-
+      - save_cache:
+          key: simpleMesage
+          path:
+            - ~./test.txt
   build:
     docker:
       - image: circleci/node:13.8.0
@@ -33,10 +36,6 @@ workflows:
       - welcome/run
       - print_hello
       - print_world
-      - save_cache:
-          key: simpleMesage
-          path:
-            - ~./test.txt
 
   exampleContext:
     jobs:
