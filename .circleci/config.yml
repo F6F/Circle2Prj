@@ -20,7 +20,7 @@ jobs:
       - save_cache:
           key: simpleMesage
           path:
-            - ~./test.txt
+            - test.txt
   build:
     docker:
       - image: circleci/node:13.8.0
