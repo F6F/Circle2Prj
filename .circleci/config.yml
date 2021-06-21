@@ -36,7 +36,6 @@ workflows:
       - welcome/run
       - print_hello
       - print_world
-      - save_cache
 
   exampleContext:
     jobs:
