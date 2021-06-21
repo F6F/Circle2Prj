@@ -38,11 +38,11 @@ jobs:
           keys:
             - simpleMesages
       - run: echo "printing Text.txt:"
+      - run: cat test.txt
       - run: 
           name: error handler
           command: echo "error restoring cache"
           when: on _fail
-      - run: cat test.txt
 
   build:
     docker:
